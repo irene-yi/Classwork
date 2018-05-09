@@ -1,26 +1,26 @@
-class Player (object):
-	def ___int___ (self, name, type, hp):
+class Player(object):
+	def ___int___ (self, name, hp, type):
 		self.name = name
 		self.hp = hp
 
 		if type == 'water':
-			{
+			self.type = {
 				'Blood Bending': random.randint(30,80),
 				'Water Octopus': random.randint(10,20),
-				'Heal': random.randint (-20,-30)
+				'Heal': random.randint (-30,-20)
 			}
 		elif type == 'fire':
-			{
+			self.type = {
 				'Fire Ball': random.randint(20,40),
 				'Thunderbolt': random.randint(40,60)
 			}
-		else
+		else:
 			print ('Not a choice')
 
-		for moves in self.type:
-			print(moves)
+	#	for moves in self.type:
+	#		print(moves)
 
-	def battle
+	def battle(self, enemy):
 		for x in self.type:
 			print (x)
 
@@ -30,16 +30,16 @@ class Player (object):
 
 			chosen_attack = self.type[user_choice]
 
-			if (self.hp > 1)
+			if (self.hp > 1):
 				enemy.hp = enemy.hp - chosen_attack
 				print ('%s did %d damage to %s' (self.name, chosen_attack, enemy.name))
 				print ('%s HP left' %(enemy.name, enemy.hp))
 				if (enemy.hp > 1):
-					retrn enemy.battle(self)
-			else
+					return enemy.battle(self)
+			else:
 				print('%s is knoked out, %s won'%(enemy.name, self.name))
 			
 #ABSTRACTED FORM
-Katara = Player('Katara', 'water', 100)
-Zuko = Player('Zuko', 'fire', 100)
-Player.battle(Katara, Zuko)
+katara = Player('Katara', 100, 'water')
+zuko = Player('Zuko', 100, 'fire')
+Player.battle(katara, zuko)
